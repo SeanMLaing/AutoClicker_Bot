@@ -12,10 +12,6 @@ from pynput import mouse, keyboard
 # Global Vars
 DEBUG = False
 
-
-
-
-
 class MouseRecorder:
     def __init__(self, app):
         self.App = app
@@ -274,13 +270,6 @@ class App:
 
         threading.Thread(target=playbackloop, daemon=True).start() 
 
-
-        #threading.Thread(
-        #    target=self.recorder.playback,
-        #    args=(self.update_status,),
-        #    daemon=True
-        #).start()
-
     def stop_playback(self):
         log('Stop Playback Clicked')
         self.recorder.stop()
@@ -299,9 +288,6 @@ class App:
             self.recorder.pause()
             self.status_label.config(text="Paused Playback", fg="yellow")
             log("Paused Playback")
-
-
-
 
     def update_status(self, text):
         self.status_label.config(text=text, fg="green")
@@ -360,21 +346,15 @@ class App:
             # If user enters an invalid hotkey string, show error instead of crashing
             self.status_label.config(text=f"Hotkey error: {e}", fg="red")
 
-
-
-
 def log(string):
     if (DEBUG):
         print(string)
-
 
 def Banner(text):
    print("=" * 20)
    print(text)
    print("=" * 20)
    return
-
-
 
 if __name__ == "__main__":
     Banner("Starting Program...")
@@ -385,12 +365,9 @@ if __name__ == "__main__":
                     DEBUG = True
                     print("Debug enabled")
 
-                print(_)
-
-
     root = tk.Tk()
     style = ttk.Style()
-    
+
     BG_DARK = "#1a1b26"
     FG_LIGHT = "#c0caf5"
     ACCENT_BLUE = "#41a6ff"
@@ -418,10 +395,6 @@ if __name__ == "__main__":
         background=[("active", "#5ab0ff")],
         foreground=[("active", "#000000")]
     )
-
-
-
-
 
     app = App(root)
     root.mainloop()
