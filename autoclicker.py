@@ -147,7 +147,6 @@ class App:
 
         # Recording Panel (left side)
         ttk.Label(self.left_frame, text="Recording", style="TLabel").pack(pady=5)
-        #self.label_record(self.left_frame, text="Recording", bg=BG_DARK, fg=FG_LIGHT).pack(pady=5)
 
         self.record_btn = ttk.Button(self.left_frame, text="Record", style="Accent.TButton", command=self.start_record)
         self.record_btn.pack(pady=5)
@@ -156,9 +155,7 @@ class App:
         self.stop_btn.pack(pady=5)
 
         # Playback Panel (right side)
-
-        ttk.Label(self.left_frame, text="Playback", style="TLabel").pack(pady=5)
-
+        ttk.Label(self.right_frame, text="Playback", style="TLabel").pack(pady=5)
 
         self.play_btn = ttk.Button(self.right_frame, text="Playback", style="Accent.TButton", command=self.start_playback)
         self.play_btn.pack(pady=5)
@@ -168,7 +165,6 @@ class App:
 
         self.stopplay_btn = ttk.Button(self.right_frame, text="Stop Playback", style="Accent.TButton", command=self.stop_playback)
         self.stopplay_btn.pack(pady=5)
-
 
         # Checkboxes
         tk.Checkbutton(self.left_frame, text="Record Mouse Movement", variable=self.moves_var,
@@ -202,7 +198,7 @@ class App:
         self.stop_hotkey = tk.StringVar(value="<ctrl>+<alt>+s")
         self.play_hotkey = tk.StringVar(value="<ctrl>+p")
         self.playpause_hotkey = tk.StringVar(value="<ctrl>+<space>")
-        self.stopplayback_hotkey = tk.StringVar(value="<ctrl>+s")
+        self.stopplayback_hotkey = tk.StringVar(value="<ctrl>+k")
 
         tk.Label(self.left_frame, text="StartRecording Hotkey").pack(pady=3)
         tk.Entry(self.left_frame, textvariable=self.record_hotkey).pack(pady=3)
